@@ -32,3 +32,6 @@
             border: none;
             outline: none;
             color: white;
+             background-color: #2D3748; /* Dark blue-gray for number buttons */
+            transition: background-color 0.15s ease-in-out;
+        }
