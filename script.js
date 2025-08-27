@@ -47,4 +47,31 @@
                 const prev = parseFloat(this.previousOperand);
                 const current = parseFloat(this.currentOperand);
                 if (isNaN(prev) || isNaN(current)) return;
+ // Use a switch statement for operations
+                switch (this.operation) {
+                    case '+':
+                        computation = prev + current;
+                        break;
+                    case '-':
+                        computation = prev - current;
+                        break;
+                    case '×':
+                        computation = prev * current;
+                        break;
+                    case '÷':
+                        if (current === 0) { // Handle division by zero
+                            alert("Error: Cannot divide by zero!");
+                            this.clear();
+                            return;
+                        }
+                        computation = prev / current;
+                        break;
+                    default:
+                        return;
+                }
+                this.currentOperand = computation;
+                this.operation = undefined;
+                this.previousOperand = '';
+                this.isResultDisplayed = true;
+            }
 
