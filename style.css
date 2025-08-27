@@ -26,3 +26,9 @@
         /* Styling for all buttons */
         .calculator-grid > button {
             cursor: pointer;
+            /* Using clamp() for responsive font size. 
+            It will be at least 1.5rem, ideally 5vw, but no more than 3rem. */
+            font-size: clamp(1.5rem, 5vw, 3rem);
+            border: none;
+            outline: none;
+            color: white;
