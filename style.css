@@ -11,3 +11,5 @@
          /* Main Calculator Grid Layout */
         .calculator-grid {
             display: grid;
+            /* The grid takes up the full screen height */
+            height: 100vh;
