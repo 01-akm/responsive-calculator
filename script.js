@@ -113,5 +113,7 @@
         const allClearButton = document.querySelector('[data-all-clear]');
         const previousOperandTextElement = document.querySelector('#previous-operand');
         const currentOperandTextElement = document.querySelector('#current-operand');
+// Create a new calculator instance
+        const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement);
 
      
