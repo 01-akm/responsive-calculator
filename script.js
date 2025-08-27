@@ -117,3 +117,12 @@
         const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement);
 
      
+        // Add click listeners for number buttons
+        numberButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                calculator.appendNumber(button.innerText);
+                calculator.updateDisplay();
+            });
+        });
+
+      
