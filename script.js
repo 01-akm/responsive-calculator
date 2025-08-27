@@ -132,5 +132,11 @@
                 calculator.updateDisplay();
             });
         });
+  // Add click listener for the equals button
+        equalsButton.addEventListener('click', button => {
+            calculator.compute();
+            calculator.updateDisplay();
+        });
 
+       
        
