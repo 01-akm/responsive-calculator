@@ -173,4 +173,8 @@
             if (key === '-') calculator.chooseOperation('-');
             if (key === '*') calculator.chooseOperation('×');
             if (key === '/') calculator.chooseOperation('÷');
-            
+                 // Update display after an operation key is pressed via keyboard
+            if (['+', '-', '*', '/'].includes(key)) {
+                calculator.updateDisplay();
+            }
+        });
