@@ -8,3 +8,6 @@
             margin: 0;
             background: #2D3748; /* Dark blue-gray background */
         }
+         /* Main Calculator Grid Layout */
+        .calculator-grid {
+            display: grid;
