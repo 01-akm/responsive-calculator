@@ -150,4 +150,27 @@
             calculator.updateDisplay();
         });
 
-       
+        // Add keyboard support
+        document.addEventListener('keydown', (event) => {
+            let key = event.key;
+            if (key >= 0 && key <= 9 || key === '.') {
+                calculator.appendNumber(key);
+                calculator.updateDisplay();
+            }
+            if (key === '=' || key === 'Enter') {
+                calculator.compute();
+                calculator.updateDisplay();
+            }
+            if (key === 'Backspace') {
+                calculator.delete();
+                calculator.updateDisplay();
+            }
+            if (key === 'Escape') {
+                calculator.clear();
+                calculator.updateDisplay();
+            }
+            if (key === '+') calculator.chooseOperation('+');
+            if (key === '-') calculator.chooseOperation('-');
+            if (key === '*') calculator.chooseOperation('×');
+            if (key === '/') calculator.chooseOperation('÷');
+            
