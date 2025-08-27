@@ -39,3 +39,7 @@
         .calculator-grid > button:hover {
             background-color: #4A5568; /* A lighter gray on hover */
         }
+        /* Active/click effect for all buttons */
+        .calculator-grid > button:active {
+            background-color: #718096;
+        }
