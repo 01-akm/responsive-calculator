@@ -138,5 +138,10 @@
             calculator.updateDisplay();
         });
 
-       
+       // Add click listener for the all-clear button
+        allClearButton.addEventListener('click', button => {
+            calculator.clear();
+            calculator.updateDisplay();
+        });
+
        
