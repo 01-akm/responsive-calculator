@@ -1,89 +1,143 @@
- /* CSS Reset and Basic Setup */
-        *, *::before, *::after {
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-        }
-         body {
-            margin: 0;
-            background: #2D3748; /* Dark blue-gray background */
-        }
-         /* Main Calculator Grid Layout */
-        .calculator-grid {
-            display: grid;
-            /* The grid takes up the full screen height */
-            height: 100vh;
-            /* Define grid columns and rows */
-            grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
-           grid-template-rows: minmax(120px, auto) repeat(5, 1fr); /* Display row + 5 button rows */
-           gap: 2px; /* A small gap to create button borders */
-           background-color: #1A202C; /* Very dark background for the grid container */
-        }
-        /* Make specific buttons span two columns */
-        .span-two-columns {
-            grid-column: span 2;
-        }
-        /* Styling for all buttons */
-        .calculator-grid > button {
-            cursor: pointer;
-            /* Using clamp() for responsive font size. 
-            It will be at least 1.5rem, ideally 5vw, but no more than 3rem. */
-            font-size: clamp(1.5rem, 5vw, 3rem);
-            border: none;
-            outline: none;
-            color: white;
-             background-color: #2D3748; /* Dark blue-gray for number buttons */
-            transition: background-color 0.15s ease-in-out;
-        }
-         /* Hover effect for all buttons */
-        .calculator-grid > button:hover {
-            background-color: #4A5568; /* A lighter gray on hover */
-        }
-        /* Active/click effect for all buttons */
-        .calculator-grid > button:active {
-            background-color: #718096;
-        }
-        /* Different styling for operator buttons */
-        button[data-operator] {
-            background-color: #DD6B20; /* Orange for operators */
-        }
-        button[data-operator]:hover {
-            background-color: #F6AD55;
-        }
-        button[data-operator]:active {
-            background-color: #FBD38D;
-        }
-         /* Different styling for utility buttons (AC and DEL) */
-        button[data-all-clear], button[data-delete] {
-            background-color: #A0AEC0; /* Light gray for utilities */
-            color: #1A202C;
-        }
-        button[data-all-clear]:hover, button[data-delete]:hover {
-            background-color: #CBD5E0;
-        }
-        button[data-all-clear]:active, button[data-delete]:active {
-            background-color: #E2E8F0;
-        }
-         /* Display Area Styling */
-        .display {
-            grid-column: 1 / -1; /* The display spans all 4 columns */
-            background-color: #1A202C;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            justify-content: space-around;
-            padding: 20px;
-            word-wrap: break-word;
-            word-break: break-all;
-        }
-          .previous-operand {
-            color: rgba(255, 255, 255, .75);
-            /* Responsive font size */
-            font-size: clamp(1rem, 4vw, 2rem);
-        }
+/* CSS Reset and Basic Setup */
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
 
-        .current-operand {
-            color: white;
-            /* Responsive font size */
-            font-size: clamp(2rem, 8vw, 4rem);
-        }
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1a2a6c;
+    overflow: hidden; /* Hide the parts of the shapes that go off-screen */
+}
+
+/* Animated background shapes */
+.background-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.background-shapes::before, .background-shapes::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    animation: float 15s infinite ease-in-out;
+}
+
+.background-shapes::before {
+    width: 40vmax;
+    height: 40vmax;
+    background: linear-gradient(135deg, #b21f1f, #fdbb2d);
+    top: -10%;
+    left: -10%;
+}
+
+.background-shapes::after {
+    width: 30vmax;
+    height: 30vmax;
+    background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+    bottom: -15%;
+    right: -15%;
+    animation-delay: 2s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+    }
+    50% {
+        transform: translateY(-30px) translateX(20px);
+    }
+}
+
+
+/* Main Calculator Grid Layout */
+.calculator-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    padding: 30px;
+    width: 90%;
+    max-width: 400px;
+    
+    /* Glassmorphism Effect */
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Span rules for specific buttons */
+.span-two-columns { grid-column: span 2; }
+.span-two-rows { grid-row: span 2; }
+
+/* Styling for all buttons */
+.calculator-grid > button {
+    cursor: pointer;
+    font-size: clamp(1.2rem, 5vw, 1.8rem);
+    font-weight: 500;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    padding: 20px;
+    color: white;
+    background: rgba(255, 255, 255, 0.15);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Interactive hover and active states */
+.calculator-grid > button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.calculator-grid > button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Different styling for operator buttons */
+button[data-operator], button[data-equals] {
+    background-color: rgba(255, 159, 67, 0.5);
+}
+
+/* Different styling for utility buttons */
+button[data-all-clear], button[data-delete] {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Display Area Styling */
+.display {
+    grid-column: 1 / -1;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    word-wrap: break-word;
+    word-break: break-all;
+    min-height: 120px;
+}
+
+.previous-operand {
+    color: rgba(255, 255, 255, .75);
+    font-size: clamp(1rem, 4vw, 1.5rem);
+}
+
+.current-operand {
+    color: white;
+    font-size: clamp(2rem, 8vw, 3rem);
+    font-weight: 700;
+}
