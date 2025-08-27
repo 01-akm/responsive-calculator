@@ -35,3 +35,7 @@
              background-color: #2D3748; /* Dark blue-gray for number buttons */
             transition: background-color 0.15s ease-in-out;
         }
+         /* Hover effect for all buttons */
+        .calculator-grid > button:hover {
+            background-color: #4A5568; /* A lighter gray on hover */
+        }
