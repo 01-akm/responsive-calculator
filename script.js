@@ -12,3 +12,11 @@
                 this.operation = undefined;
                 this.isResultDisplayed = false;
             }
+            // Deletes the last character from the current operand
+            delete() {
+                if (this.currentOperand.length === 1 && this.currentOperand !== '0') {
+                    this.currentOperand = '0';
+                } else if (this.currentOperand.length > 1) {
+                    this.currentOperand = this.currentOperand.toString().slice(0, -1);
+                }
+            }
