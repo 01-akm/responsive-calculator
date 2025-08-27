@@ -23,3 +23,6 @@
         .span-two-columns {
             grid-column: span 2;
         }
+        /* Styling for all buttons */
+        .calculator-grid > button {
+            cursor: pointer;
