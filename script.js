@@ -20,3 +20,13 @@
                     this.currentOperand = this.currentOperand.toString().slice(0, -1);
                 }
             }
+             // Appends a number to the current operand
+            appendNumber(number) {
+                if (number === '.' && this.currentOperand.includes('.')) return;
+                if (this.isResultDisplayed) {
+                    this.currentOperand = number;
+                    this.isResultDisplayed = false;
+                } else {
+                    this.currentOperand = this.currentOperand === '0' ? number : this.currentOperand.toString() + number.toString();
+                }
+            }
