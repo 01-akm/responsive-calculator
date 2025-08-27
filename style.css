@@ -15,4 +15,4 @@
             height: 100vh;
             /* Define grid columns and rows */
             grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
-           
+           grid-template-rows: minmax(120px, auto) repeat(5, 1fr); /* Display row + 5 button rows */
