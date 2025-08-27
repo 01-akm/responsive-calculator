@@ -144,4 +144,10 @@
             calculator.updateDisplay();
         });
 
+        // Add click listener for the delete button
+        deleteButton.addEventListener('click', button => {
+            calculator.delete();
+            calculator.updateDisplay();
+        });
+
        
