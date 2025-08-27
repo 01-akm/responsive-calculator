@@ -125,4 +125,12 @@
             });
         });
 
-      
+       // Add click listeners for operation buttons
+        operationButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                calculator.chooseOperation(button.innerText);
+                calculator.updateDisplay();
+            });
+        });
+
+       
