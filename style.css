@@ -13,3 +13,6 @@
             display: grid;
             /* The grid takes up the full screen height */
             height: 100vh;
+            /* Define grid columns and rows */
+            grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+           
