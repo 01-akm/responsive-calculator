@@ -19,3 +19,7 @@
            gap: 2px; /* A small gap to create button borders */
            background-color: #1A202C; /* Very dark background for the grid container */
         }
+        /* Make specific buttons span two columns */
+        .span-two-columns {
+            grid-column: span 2;
+        }
