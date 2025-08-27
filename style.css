@@ -53,3 +53,14 @@
         button[data-operator]:active {
             background-color: #FBD38D;
         }
+         /* Different styling for utility buttons (AC and DEL) */
+        button[data-all-clear], button[data-delete] {
+            background-color: #A0AEC0; /* Light gray for utilities */
+            color: #1A202C;
+        }
+        button[data-all-clear]:hover, button[data-delete]:hover {
+            background-color: #CBD5E0;
+        }
+        button[data-all-clear]:active, button[data-delete]:active {
+            background-color: #E2E8F0;
+        }
