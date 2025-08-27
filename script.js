@@ -30,3 +30,14 @@
                     this.currentOperand = this.currentOperand === '0' ? number : this.currentOperand.toString() + number.toString();
                 }
             }
+
+            // Sets the chosen operation
+            chooseOperation(operation) {
+                if (this.currentOperand === '' && this.previousOperand === '') return;
+                if (this.previousOperand !== '') {
+                    this.compute();
+                }
+                this.operation = operation;
+                this.previousOperand = this.currentOperand;
+                this.currentOperand = '';
+            }
