@@ -5,3 +5,10 @@
                 this.currentOperandTextElement = currentOperandTextElement;
                 this.clear();
             }
+             // Clears all data to default state
+            clear() {
+                this.currentOperand = '0';
+                this.previousOperand = '';
+                this.operation = undefined;
+                this.isResultDisplayed = false;
+            }
