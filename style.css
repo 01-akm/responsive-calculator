@@ -4,3 +4,7 @@
             font-family: 'Inter', sans-serif;
             font-weight: 500;
         }
+         body {
+            margin: 0;
+            background: #2D3748; /* Dark blue-gray background */
+        }
