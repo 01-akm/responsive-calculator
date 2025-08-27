@@ -43,3 +43,13 @@
         .calculator-grid > button:active {
             background-color: #718096;
         }
+        /* Different styling for operator buttons */
+        button[data-operator] {
+            background-color: #DD6B20; /* Orange for operators */
+        }
+        button[data-operator]:hover {
+            background-color: #F6AD55;
+        }
+        button[data-operator]:active {
+            background-color: #FBD38D;
+        }
